@@ -1,74 +1,57 @@
+const output = document.getElementById("output");
+const input = document.getElementById("input");
+const bgDiv = document.getElementById("background");
+
 const enigmas = [
   {
-    pergunta: "Começa com a letra do nosso mês especial, e foi onde demos o primeiro passo.",
-    resposta: "junho",
-    mensagem: "Sim... Junho. Nosso começo. Onde tudo mudou. "
+    pergunta: "meu nome?",
+    resposta: "Enzo",
+    mensagem: "sabe muito",
+    imagemFundo: "fundo1.jpg" // 
   },
   {
-    pergunta: "É doce, mas não se come. Aparece quando você sorri para mim.",
-    resposta: "olhar",
-    mensagem: "Seu olhar é meu lugar favorito. "
-  },
-  {
-    pergunta: "Se eu tivesse que viver tudo de novo, começaria onde?",
-    resposta: "com você",
-    mensagem: "Você é minha resposta em qualquer tempo. Vá até a gaveta do criado-mudo. "
+    pergunta: "Segundo enigma: o que anda com os pés na cabeça?",
+    resposta: "piolho",
+    mensagem: "Certo. Um piolho vive na cabeça e se movimenta com os pés.",
+    imagemFundo: "fundo2.jpg" // (cole o arquivo da imagem aqui)
   }
 ];
 
 let etapaAtual = 0;
 
-const output = document.getElementById('output');
-const input = document.getElementById('input');
-
-function mostrarPergunta() {
-  output.innerText += `\n ${enigmas[etapaAtual].pergunta}\n`;
-}
-
-function processando(callback) {
-  output.innerText += "\nProcessando";
-  let pontos = 0;
-  const interval = setInterval(() => {
-    if (pontos < 3) {
-      output.innerText += ".";
-      pontos++;
-    } else {
-      clearInterval(interval);
-      output.innerText += "\n";
-      callback();
-    }
-  }, 500);
+function exibirPergunta() {
+  output.innerText += `\n${enigmas[etapaAtual].pergunta}\n`;
 }
 
 function verificarResposta(resposta) {
-  input.disabled = true;
+  const respostaCorreta = enigmas[etapaAtual].resposta.toLowerCase().trim();
+  const respostaUsuario = resposta.toLowerCase().trim();
 
-  processando(() => {
-    if (resposta.toLowerCase().trim() === enigmas[etapaAtual].resposta) {
-      output.innerText += ` ${enigmas[etapaAtual].mensagem}\n`;
-      etapaAtual++;
-      if (etapaAtual < enigmas.length) {
-        mostrarPergunta();
-      } else {
-        output.innerText += "\n Fim da jornada... mas o amor continua. Feliz Dia dos Namorados! \n";
-        input.style.display = 'none';
-      }
+  if (respostaUsuario === respostaCorreta) {
+    output.innerText += `\n> ${resposta}\n✔ ${enigmas[etapaAtual].mensagem}\n`;
+    bgDiv.style.backgroundImage = `url('${enigmas[etapaAtual].imagemFundo}')`;
+
+    etapaAtual++;
+    if (etapaAtual < enigmas.length) {
+      setTimeout(() => {
+        output.innerText += `\n\n`;
+        exibirPergunta();
+      }, 1500);
     } else {
-      output.innerText += " Hmm... ainda não. Tente outra vez.\n";
+      output.innerText += `\n\n✨ Você concluiu todos os enigmas!`;
     }
-    input.disabled = false;
-    input.focus();
-  });
+  } else {
+    output.innerText += `\n> ${resposta}\n❌ Resposta incorreta. Tente novamente.\n`;
+  }
+
+  input.value = "";
 }
 
-input.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') {
-    const resposta = input.value;
-    output.innerText += `\n> ${resposta}`;
-    input.value = '';
-    verificarResposta(resposta);
+input.addEventListener("keydown", function (e) {
+  if (e.key === "Enter" && input.value.trim() !== "") {
+    verificarResposta(input.value);
   }
 });
 
-output.innerText = " Bem-vinda(o) à surpresa mais romântica do ano...\n\n";
-mostrarPergunta();
+// Inicializar com a primeira pergunta
+exibirPergunta();

@@ -1,37 +1,63 @@
 body {
-  background-color: #000000;
-  color: #00FF00;
-  font-family: Consolas, monospace;
   margin: 0;
   padding: 0;
+  background-color: black;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Escurecimento */
+  z-index: -1;
 }
 
 .terminal {
-  width: 90%;
-  max-width: 800px;
-  background-color: #000000;
+  position: relative;
+  z-index: 1;
+  width: 80%;
+  max-width: 600px;
+  margin: 80px auto;
+  background-color: #000000d0;
   padding: 20px;
-  box-shadow: inset 0 0 10px #00FF00;
-  border: 2px solid #00FF00;
+  border: 1px solid #00ff00;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #00ff00;
 }
 
 #output {
+  min-height: 200px;
   white-space: pre-wrap;
   margin-bottom: 10px;
-  font-size: 1rem;
 }
 
 #input {
   width: 100%;
-  background: none;
+  background-color: black;
   border: none;
-  border-bottom: 1px solid #00FF00;
-  color: #00FF00;
-  font-family: Consolas, monospace;
+  border-top: 1px solid #00ff00;
+  color: #00ff00;
   font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  padding: 10px;
   outline: none;
 }

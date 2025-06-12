@@ -6,13 +6,13 @@ const enigmas = [
   },
   {
     pergunta: "lembra quando foi?",
-    resposta: "Interclasse",
-    mensagem: "eu acabei de lembrar de algo na vdd antes ainda q foi muito MUITO bom, que foi no dia das crianças, q a gente ficou junto o dia todo, e vc subiu nas minhas costas, alias eu amo quando vc faz isso, mesmo q as vezes vc segure com o braço no meu pescosto e eu quase morra, enfim, voltando ao interclasse, eu percebi o quão maluco eu tava e apaixonado quando o vôlei e uma camisa de banda não eram a minha preocupação, e sim ver vc e estar com a camisa de beijocas, que aliás desde q vc fez ela eu ja estava de olho, e caraca, eu to ficando velho pq eu simplesmente esqueci que antes mesmo disso teve A FORMATURA DO PEDRO, cujo dia também foi mt curioso, vc tava extremamente linda (como sempre) e eu tava doidinho pra te beijar, mas eu feiamente travei,e foi justamente pensando nisso q eu lembrei do primeiro e emocionante selinho que eu te dei, foi rapido, mas me paralizou pelo resto do dia, assim como no dia seguinte, onde eu fui literalmente fuzilado,"
+    resposta: "interclasse",
+    mensagem: "eu acabei de lembrar de algo na vdd antes ainda q foi muito MUITO bom, que foi no dia das crianças, q a gente ficou junto o dia todo, e vc subiu nas minhas costas, alias eu amo quando vc faz isso, mesmo q as vezes vc segure com o braço no meu pescosto e eu quase morra, enfim, voltando ao interclasse, eu percebi o quão maluco eu tava e apaixonado quando o vôlei e uma camisa de banda não eram a minha preocupação, e sim ver vc e estar com a camisa de beijocas, que aliás desde q vc fez ela eu ja estava de olho, e caraca, eu to ficando velho pq eu simplesmente esqueci que antes mesmo disso teve A FORMATURA DO PEDRO, cujo dia também foi mt curioso, vc tava extremamente linda (como sempre) e eu tava doidinho pra te beijar, mas eu feiamente travei,e foi justamente pensando nisso q eu lembrei do primeiro e emocionante selinho que eu te dei, foi rapido, mas me paralizou pelo resto do dia, assim como no dia seguinte, onde eu fui literalmente fuzilado,e justamente por aquele sentimento de que nn iria se ver mais, mas opa, mesmo que pouco a gente ainda se via na igreja, mas eu sinto q mesmo que nem aí a gente n se visse, ia acontecer do mesmo jeito, até quando eu finalmente fui na sua casa,e fiquei definitivamente com o uc na mão, mastd deu certo e MUITO certo, até o dia 28, onde ja com a benção eu podia te pedir em namoro finalmente, mesmo q não minha ideia ainda pq tinha q ser algo bem melhor,mas enfim, fato foi q aconteceu e com crtz a melhor escolha da minha vida, e pra não me estender mais ainda aqui eu quero dizer q nesses 10 meses q a gente se conhece foram suficientes pra eu me apaixonar e amar completamente seus olhos, seu nariz desenhadinho e a pintinha dele, sua boca, SEU CABELO que é impressionantemente perfeito em tudo, seu beijo que desde aqueles 5 segundos antes de eu subir no onibus, ja foi quase um paraíso, sua cintura e o quão perfeita ela fica na minha mão, ouvir sua voz me chamando de ridículo, enfim, eu amo de mais você, de mais mesmo Isabela, e eu vou fazer de tudo pra vc nunca ter dúvida disso, e antes de eu te entregar a ultima parte do texto eu preciso que você diga aqui... "
   },
   {
-    pergunta: "Se eu tivesse que viver tudo de novo, começaria onde?",
-    resposta: "com você",
-    mensagem: "Você é minha resposta em qualquer tempo. Vá até a gaveta do criado-mudo. "
+    pergunta: "quem ama mais?",
+    resposta: "você",
+    mensagem: "mesmo negando, obrigado por reconhecer"
   }
 ];
 
@@ -32,7 +32,7 @@ function verificarResposta(resposta) {
     if (etapaAtual < enigmas.length) {
       mostrarPergunta();
     } else {
-      output.innerText += "\n🎉 Fim da jornada... mas o amor continua. Feliz Dia dos Namorados! ❤️\n";
+      output.innerText += "\n e acabou, da uma olhada no bolso direito da sua bolsa e Feliz Dia dos Namorados! ❤️\n";
       input.style.display = 'none';
     }
   } else {
